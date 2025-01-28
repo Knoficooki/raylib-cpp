@@ -212,40 +212,17 @@ public:
      * Returns src alpha-blended into dst color with tint
      */
     [[nodiscard]] Color AlphaBlend(::Color dst, ::Color tint) const { return ::ColorAlphaBlend(dst, *this, tint); }
+    
+protected:
+    void set(const ::Color& color) {
+        r = color.r;
+        g = color.g;
+        b = color.b;
+        a = color.a;
+    }
+};
 
-    /* I think it deprecated
-    static Color LightGray() { return LIGHTGRAY; }
-    static Color Gray() { return GRAY; }
-    static Color DarkGray() { return DARKGRAY; }
-    static Color Yellow() { return YELLOW; }
-    static Color Gold() { return GOLD; }
-    static Color Orange() { return ORANGE; }
-    static Color Pink() { return PINK; }
-    static Color Red() { return RED; }
-    static Color Maroon() { return MAROON; }
-    static Color Green() { return GREEN; }
-    static Color Lime() { return LIME; }
-    static Color DarkGreen() { return DARKGREEN; }
-    static Color SkyBlue() { return SKYBLUE; }
-    static Color Blue() { return BLUE; }
-    static Color DarkBlue() { return DARKBLUE; }
-    static Color Purple() { return PURPLE; }
-    static Color Violet() { return VIOLET; }
-    static Color DarkPurple() { return DARKPURPLE; }
-    static Color Beige() { return BEIGE; }
-    static Color Brown() { return BROWN; }
-    static Color DarkBrown() { return DARKBROWN; }
-    static Color White() { return WHITE; }
-    static Color Black() { return BLACK; }
-    static Color Blank() { return BLANK; }
-    static Color Magenta() { return MAGENTA; }
-    static Color RayWhite() { return RAYWHITE; }
-    */
-
-    /**
-     * As an alternative to a function calling convention
-     */
-    constexpr Color LightGray = LIGHTGRAY;
+	constexpr Color LightGray = LIGHTGRAY;
     constexpr Color Gray = GRAY;
     constexpr Color DarkGray = DARKGRAY;
     constexpr Color Yellow = YELLOW;
@@ -271,14 +248,6 @@ public:
     constexpr Color Blank = BLANK;
     constexpr Color Magenta = MAGENTA;
     constexpr Color RayWhite = RAYWHITE;
-protected:
-    void set(const ::Color& color) {
-        r = color.r;
-        g = color.g;
-        b = color.b;
-        a = color.a;
-    }
-};
 
 } // namespace raylib
 
